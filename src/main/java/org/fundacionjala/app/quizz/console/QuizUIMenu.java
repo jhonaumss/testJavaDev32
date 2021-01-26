@@ -3,9 +3,16 @@ package org.fundacionjala.app.quizz.console;
 import org.fundacionjala.app.quizz.model.Question;
 import org.fundacionjala.app.quizz.model.Quiz;
 
+import java.util.Scanner;
+
 public class QuizUIMenu {
 
+    Scanner scanner;
+
     public Quiz handleCreateQuiz() {
+
+        scanner = new Scanner(System.in);
+
         String title = askQuizTitle();
         Quiz quiz = new Quiz(title);
         boolean shouldExit = false;
@@ -32,7 +39,7 @@ public class QuizUIMenu {
 
     private char readOption() {
         System.out.print("> ");
-        return System.console().readLine().trim().charAt(0);
+        return scanner.nextLine().trim().charAt(0);
     }
 
     private void showMenu() {
@@ -44,6 +51,6 @@ public class QuizUIMenu {
     private String askQuizTitle() {
         System.out.println("Type the quiz title");
         System.out.print("> ");
-        return System.console().readLine();
+        return scanner.nextLine();
     }
 }

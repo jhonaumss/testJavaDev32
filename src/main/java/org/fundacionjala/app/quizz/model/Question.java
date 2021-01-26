@@ -6,6 +6,7 @@ import java.util.List;
 import org.fundacionjala.app.quizz.model.validator.ValidatorType;
 
 public class Question {
+
     private final String title;
     private final QuestionType questionType;
     private final List<ValidatorType> validations;

@@ -1,11 +1,14 @@
 package org.fundacionjala.app.quizz.console;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 import org.fundacionjala.app.quizz.model.Question;
 
 public class QuestionInputHandler {
+
+    Scanner scanner = new Scanner(System.in);
 
     public Set<String> askQuestionValue(Question question) {
         System.out.println("Question: " + question.getTitle());
@@ -18,7 +21,7 @@ public class QuestionInputHandler {
             answers.add(collectAnswerFromOptions(question));
         } else {
             System.out.print(question.getType().getName() + " value: ");
-            String value = System.console().readLine();
+            String value = scanner.nextLine();
             answers.add(value);
         }
 
@@ -49,6 +52,6 @@ public class QuestionInputHandler {
 
     private char readOption() {
         System.out.print("> ");
-        return System.console().readLine().trim().charAt(0);
+        return scanner.nextLine().trim().charAt(0);
     }
 }

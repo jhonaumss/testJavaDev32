@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class QuizAnswers {
+
     private final Quiz quiz;
     private final UUID id;
     private final List<Answer> answers;

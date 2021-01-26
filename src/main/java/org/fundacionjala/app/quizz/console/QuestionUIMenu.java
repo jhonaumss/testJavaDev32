@@ -2,6 +2,7 @@ package org.fundacionjala.app.quizz.console;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.fundacionjala.app.quizz.model.Question;
 import org.fundacionjala.app.quizz.model.QuestionType;
@@ -10,7 +11,13 @@ import org.fundacionjala.app.quizz.model.Question.QuestionBuilder;
 
 public class QuestionUIMenu {
 
+    private static Scanner scanner;
+
+
+//    public static Question handleCreateQuestion() {
     public static Question handleCreateQuestion() {
+        scanner = new Scanner(System.in);
+
         QuestionUIMenu menu = new QuestionUIMenu();
         String title = menu.askQuestionTitle();
         QuestionType questionType = menu.askQuestionType();
@@ -93,11 +100,11 @@ public class QuestionUIMenu {
     private String askQuestionTitle() {
         System.out.println("Type the question title");
         System.out.print("> ");
-        return System.console().readLine();
+        return scanner.nextLine();
     }
 
     private char readOption() {
         System.out.print("> ");
-        return System.console().readLine().trim().charAt(0);
+        return scanner.nextLine().trim().charAt(0);
     }
 }

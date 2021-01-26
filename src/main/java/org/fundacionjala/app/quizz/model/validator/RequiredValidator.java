@@ -10,6 +10,7 @@ public class RequiredValidator implements Validator<String, String> {
     public void validate(String value, String conditionValue, List<String> errors) {
         if (value == null || value == "") {
             errors.add(ERROR_MESSAGE);
+            System.out.println("entro validador");
         }
     }
 }
